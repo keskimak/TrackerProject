@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Server Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<div class=container>
+		<div class="row">
+			<div class="col-md-10">
+				<br>
+				<h1>My mood</h1>
+			</div>
+			<div class="col-md-2" style="padding: 20px 0">
+
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" value="Sign Out"
+						class="btn btn-sm btn-warning" />
+				</form>
+			</div>
+		</div>
+
+		<table class="table table-striped">
+			<tr>
+				<th>Moodvalue</th>
+				<th>Comment</th>
+				<th>Date</th>
+				<th></th>
+				<th></th>
+				
+			</tr>
+			<tr th:each="mood : ${moods}">
+
+				<td th:text="${mood.moodValue}">Text ...</td>
+				<td th:text="${mood.comment}">Text ...</td>
+				<td th:text="${mood.date}">Text ...</td>
+		
+
+
+				<td><a th:href="@{/edit/{id}(id=${mood.moodId})}"
+					class="btn btn-success">Edit</a></td>
+
+
+				<td><a th:href="@{/delete/{id}(id=${mood.moodId})}"
+					class="btn btn-danger">Delete</a></td>
+
+
+			</tr>
+
+		</table>
+		<a href="/addmood" class="btn btn-success">Add Mood</a>
+
+	</div>
+	
+</body>
+</html>
