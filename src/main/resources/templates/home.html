@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Server Programming</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,14 +31,14 @@
 				<th>Date</th>
 				<th></th>
 				<th></th>
-				
+
 			</tr>
 			<tr th:each="mood : ${moods}">
 
 				<td th:text="${mood.moodValue}">Text ...</td>
 				<td th:text="${mood.comment}">Text ...</td>
 				<td th:text="${mood.date}">Text ...</td>
-		
+
 
 
 				<td><a th:href="@{/edit/{id}(id=${mood.moodId})}"
@@ -55,6 +55,6 @@
 		<a href="/addmood" class="btn btn-success">Add Mood</a>
 
 	</div>
-	
+
 </body>
 </html>

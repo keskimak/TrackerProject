@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Mood tracker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<div class=container>
+		<div class="row">
+			<div class="col-md-10">
+				<br>
+				<h1>Edit log</h1>
+			</div>
+			<div class="col-md-2" style="padding: 20px 0">
+
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" value="Sign Out"
+						class="btn btn-sm btn-warning" />
+				</form>
+			</div>
+		</div>
+
+	<table class="table table-striped" style="width: 50%">
+
+				<form th:object="${mood}" th:action="@{../save}" action="#"
+				method="post">
+
+	<label for="moodId"></label>
+<input type="hidden" id="moodId" th:field="*{moodId}" readonly="readonly" />
+				<tr>
+					<td><label for="moodValue">Moodvalue (1-5)</label></td>
+					<td><input type="text" id="moodValue"
+						th:field="*{moodValue}" /></td>
+				</tr>
+
+				<tr>
+					<td><label for="comment">Comment</label></td>
+					<td><input type="text" id="comment" th:field="*{comment}" /></td>
+				</tr>
+
+				<tr>
+					<td><label for="date">Date</label></td>
+					<td><input type="date" th:field="*{date}" /></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Save" class="btn btn-success"></input>
+						<a href="/home" class="btn btn-danger">Cancel</a></td>
+				</tr>
+
+			</form>
+
+		</table>
+		<a href="/addmood" class="btn btn-success">Add Mood</a>
+
+	</div>
+	
+</body>
+</html>

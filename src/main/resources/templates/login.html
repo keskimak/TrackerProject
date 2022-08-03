@@ -1,13 +1,44 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Server Programming</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-<h1>This will be login page</h1>
-		<a href="/home" class="btn btn-success">Moodlist</a>
-		<a href="/addmood" class="btn btn-success">Add Mood</a>
+
+<div class="container"> <br>
+		<h1>Mood tracker</h1> <br>
+		<table class="table table-striped" style="width:50%" >
+			<tr> <div th:if="${param.error}" class="alert alert-secondary" role="alert" style="width:50%;background-color:#f8efc0">
+		
+				Invalid username and password.
+				</div>	 </tr>
+					
+		
+			<tr>
+				<td>
+					<form th:action="@{/login}" method="post">
+						<div>
+							<label> Username : </td> <td> <input type="text" name="username" />
+							</label>
+						</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<label> Password:  </td> <td> <input type="password" name="password" /></label>
+					</div>
+					<div>
+					<tr><td></td><td>	<input type="submit" value="Log in" class="btn btn-info" /> </td></tr>
+					</div>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

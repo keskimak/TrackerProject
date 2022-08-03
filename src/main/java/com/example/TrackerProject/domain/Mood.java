@@ -22,30 +22,27 @@ public class Mood {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long moodId;
 	
-
+	
+	private Integer moodValue;
+	private String date;
+	private String comment;
+	
+	
+	
 	public Long getMoodId() {
 		return moodId;
 	}
 
-	@NotNull
-	@Min(1)
-	@Max(5)
-	private Integer moodValue;
-	@NotNull
-	private String date;
+	public void setMoodId(Long moodId) {
+		this.moodId = moodId;
+	}
 
-	private String comment;
 	
 	public Mood() {
 		
 	}
 
-	public Mood(int moodValue, String date, String comment) {
-		
-		this.moodValue = moodValue;
-		this.date = date;
-		this.comment = comment;
-	}
+	
 
 	public String getDate() {
 		return date;
@@ -65,20 +62,20 @@ public class Mood {
 
 
 
-	public Mood(@NotEmpty(message = "Mood value cannot be empty") @Min(1) @Max(5) Integer moodValue,
-			@NotEmpty(message = "Date cannot be empty") String date, String comment) {
-		super();
-		this.moodValue = moodValue;
-		this.date = date;
-		this.comment = comment;
-	}
-
 	public Integer getMoodValue() {
 		return moodValue;
 	}
 
 	public void setMoodValue(Integer moodValue) {
 		this.moodValue = moodValue;
+	}
+
+	public Mood(Integer moodValue,String date, String comment) {
+		
+		
+		this.moodValue = moodValue;
+		this.date = date;
+		this.comment = comment;
 	}
 
 	
